@@ -62,7 +62,7 @@ const ModalCompany = ({ setModalIsVisible }) => {
 									type="email"
 									name="email"
 									id="email"
-									placeholder="Digite o nome fantasia da empresa..."
+									placeholder="emaildaempresa@email.com"
 								/>
 							</label>
 

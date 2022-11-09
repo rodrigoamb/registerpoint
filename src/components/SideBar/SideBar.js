@@ -18,17 +18,17 @@ const SideBar = () => {
 				<img className="img" src={logo} alt="logo" />
 			</Link>
 
-			<Link to="/company" className="btn">
+			<Link to="/empresa" className="btn">
 				<BsBuilding className="icons" />
 				Perfil Empresa
 			</Link>
 
-			<Link to="/employees" className="btn">
+			<Link to="/colaboradores" className="btn">
 				<BsFillPeopleFill className="icons" />
 				Colaboradores
 			</Link>
 
-			<Link to="/addpoint" className="btn">
+			<Link to="/adicionarponto" className="btn">
 				<BiTime className="icons" />
 				Registrar ponto
 			</Link>

@@ -21,6 +21,16 @@ export const ContainerSquare = styled.div`
 		margin-right: 10px;
 	}
 
+	.iconEye {
+		font-size: 2rem;
+		color: white;
+		background-color: #ff6a00;
+		border-radius: 50%;
+		padding: 2px;
+		margin-right: 10px;
+		cursor: pointer;
+	}
+
 	.container-content {
 		background-color: ${themes.color.primaryText};
 		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
@@ -37,6 +47,7 @@ export const ContainerSquare = styled.div`
 			li {
 				display: flex;
 				flex-direction: row;
+
 				align-items: center;
 				height: 50px;
 				padding: 0 15px;

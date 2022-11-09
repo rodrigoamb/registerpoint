@@ -1,16 +1,16 @@
 import SideBar from "../../components/SideBar/SideBar";
 import CompanySquare from "./CompanySquare/CompanySquare";
 
-import { ContainerCompany, ContainerContent } from "./styles";
+import { ContainerContent } from "./styles";
 
 const Company = () => {
 	return (
-		<ContainerCompany>
+		<div>
 			<SideBar />
 			<ContainerContent>
 				<CompanySquare />
 			</ContainerContent>
-		</ContainerCompany>
+		</div>
 	);
 };
 
