@@ -13,6 +13,9 @@ import EmployeesModal from "../EmployeesModal/EmployeesModal";
 
 const EmployeesSquare = () => {
 	const [modalIsVisible, setModalIsVisible] = useState(false);
+	const [dataEmployees, setDataEmployees] = useState(null);
+
+	console.log(dataEmployees);
 
 	return (
 		<ContainerSquare>
@@ -28,26 +31,20 @@ const EmployeesSquare = () => {
 			<div className="container-content">
 				<h2>Colaboradores cadastrados:</h2>
 				<ul>
-					<li>
-						<IoIosEye className="iconEye" />
-						<span>Colaborador 01</span>
-					</li>
-					<li>
-						<IoIosEye className="iconEye" />
-						<span>Colaborador 02</span>
-					</li>
-					<li>
-						<IoIosEye className="iconEye" />
-						<span>Colaborador 03</span>
-					</li>
-					<li>
-						<IoIosEye className="iconEye" />
-						<span>Colaborador 04</span>
-					</li>
+					{dataEmployees &&
+						dataEmployees.map((item) => (
+							<li key={item.id}>
+								<IoIosEye className="iconEye" />
+								<span>{item.name}</span>
+							</li>
+						))}
 				</ul>
 			</div>
 			{modalIsVisible && (
-				<EmployeesModal setModalIsVisible={setModalIsVisible} />
+				<EmployeesModal
+					setModalIsVisible={setModalIsVisible}
+					setDataEmployees={setDataEmployees}
+				/>
 			)}
 		</ContainerSquare>
 	);

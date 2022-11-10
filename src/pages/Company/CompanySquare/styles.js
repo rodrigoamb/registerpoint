@@ -37,12 +37,25 @@ export const ContainerSquare = styled.div`
 			li {
 				display: flex;
 				flex-direction: row;
+				flex-wrap: wrap;
 				align-items: center;
 				height: 50px;
 				padding: 0 15px;
 				border-bottom: 1px solid grey;
 				margin-bottom: 10px;
 				text-transform: uppercase;
+
+				.name-company {
+					font-weight: bold;
+					text-transform: uppercase;
+					width: 50%;
+					max-width: 300px;
+				}
+
+				.cnpj-company {
+					font-size: 1.1rem;
+					letter-spacing: 0.4px;
+				}
 			}
 		}
 	}
