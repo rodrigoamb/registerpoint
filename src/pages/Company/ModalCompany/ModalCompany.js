@@ -10,6 +10,9 @@ import { useCompanyContext } from "../../../hooks/useCompanyContext";
 //import components
 import Loading from "../../../components/Loading/Loading";
 
+//import notification - toastify
+import { toast } from "react-toastify";
+
 const ModalCompany = ({
 	setModalIsVisible,
 	setNameCompany,
@@ -61,9 +64,11 @@ const ModalCompany = ({
 
 		setNameCompany(socialName);
 		setCnpjCompany(cnpj);
+
 		setModalIsVisible(false);
 
 		setLoadingIsVisible(false);
+		toast.success("Empresa salvo com sucesso.");
 	};
 
 	return (

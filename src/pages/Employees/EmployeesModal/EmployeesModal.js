@@ -10,7 +10,10 @@ import { useState } from "react";
 //import components
 import Loading from "../../../components/Loading/Loading";
 
-const EmployeesModal = ({ setModalIsVisible, setDataEmployees }) => {
+//import notification - toastify
+import { toast } from "react-toastify";
+
+const EmployeesModal = ({ setModalIsVisible, setListEmployees }) => {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [cpfEmployees, setCpfEmployees] = useState("");
@@ -62,14 +65,14 @@ const EmployeesModal = ({ setModalIsVisible, setDataEmployees }) => {
 		const res = await fetch(url, requestOptions);
 		const data = await res.json();
 
-		let listEmployees = [];
-
-		listEmployees.push(data.employees[0]);
-
-		setDataEmployees(data);
+		setListEmployees((prev) => [...prev, data.employees[0]]);
 
 		setModalIsVisible(false);
 		setLoadingIsVisible(false);
+
+		toast.success(
+			`Colaborador(a) ${data.employees[0].firstName} ${data.employees[0].lastName} salvo com sucesso.`
+		);
 	};
 
 	return (

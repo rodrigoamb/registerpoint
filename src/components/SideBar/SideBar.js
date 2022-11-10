@@ -9,7 +9,6 @@ import logo from "../../assets/images/logo.png";
 
 //import icons
 import { BsBuilding, BsFillPeopleFill } from "react-icons/bs";
-import { BiTime } from "react-icons/bi";
 
 const SideBar = () => {
 	return (
@@ -26,11 +25,6 @@ const SideBar = () => {
 			<Link to="/colaboradores" className="btn">
 				<BsFillPeopleFill className="icons" />
 				Colaboradores
-			</Link>
-
-			<Link to="/adicionarponto" className="btn">
-				<BiTime className="icons" />
-				Registrar ponto
 			</Link>
 		</ContainerSideBar>
 	);

@@ -61,7 +61,7 @@ export const ContainerContent = styled.div`
 			margin-bottom: 10px;
 		}
 
-		input[type="datetime-local"] {
+		input[type="date"] {
 			width: 90%;
 			max-width: 230px;
 			border: none;

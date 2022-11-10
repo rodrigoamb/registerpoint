@@ -6,6 +6,7 @@ import Company from "../pages/Company/Company";
 import Employees from "../pages/Employees/Employees";
 import Home from "../pages/Home/Home";
 import AddPoint from "../pages/AddPoint/AddPoint";
+import SeePoints from "../pages/SeePoints/SeePoints";
 
 const RoutesApp = () => {
 	return (
@@ -14,9 +15,10 @@ const RoutesApp = () => {
 			<Route path="/empresa" element={<Company />} />
 			<Route path="/colaboradores" element={<Employees />} />
 			<Route path="/adicionarponto" element={<AddPoint />} />
+			<Route path="/adicionarponto/:id" element={<AddPoint />} />
+			<Route path="/verpontos/:id" element={<SeePoints />} />
 		</Routes>
 	);
 };
 
 export default RoutesApp;
-

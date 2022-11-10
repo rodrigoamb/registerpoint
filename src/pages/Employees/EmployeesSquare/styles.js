@@ -21,14 +21,20 @@ export const ContainerSquare = styled.div`
 		margin-right: 10px;
 	}
 
-	.iconEye {
+	.iconEye,
+	.iconTime {
 		font-size: 2rem;
 		color: white;
-		background-color: #ff6a00;
+		margin-right: 15px;
 		border-radius: 50%;
 		padding: 2px;
-		margin-right: 10px;
 		cursor: pointer;
+	}
+	.iconEye {
+		background-color: #ff6a00;
+	}
+	.iconTime {
+		background-color: #00a601;
 	}
 
 	.container-content {
