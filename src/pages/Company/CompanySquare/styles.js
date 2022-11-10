@@ -39,8 +39,7 @@ export const ContainerSquare = styled.div`
 				flex-direction: row;
 				flex-wrap: wrap;
 				align-items: center;
-				height: 50px;
-				padding: 0 15px;
+				padding: 15px;
 				border-bottom: 1px solid grey;
 				margin-bottom: 10px;
 				text-transform: uppercase;
@@ -56,6 +55,24 @@ export const ContainerSquare = styled.div`
 					font-size: 1.1rem;
 					letter-spacing: 0.4px;
 				}
+			}
+		}
+	}
+
+	@media (max-width: 550px) {
+		.title-container {
+			font-size: 0.5rem;
+		}
+
+		.container-content {
+			padding: 10px;
+
+			h2 {
+				font-size: 1.2rem;
+			}
+
+			li {
+				flex-wrap: nowrap;
 			}
 		}
 	}

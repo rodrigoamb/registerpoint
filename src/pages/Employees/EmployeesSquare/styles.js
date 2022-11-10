@@ -63,5 +63,11 @@ export const ContainerSquare = styled.div`
 			}
 		}
 	}
+
+	@media (max-width: 550px) {
+		.title-container {
+			font-size: 0.5rem;
+		}
+	}
 `;
 

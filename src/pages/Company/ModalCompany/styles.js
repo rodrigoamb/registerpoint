@@ -3,17 +3,15 @@ import { themes } from "../../../themes/themeColors";
 import styled from "styled-components";
 
 export const ContainerModalCompany = styled.div`
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	z-index: 5;
-	min-height: 100vh;
-	min-width: 100%;
 
 	.limit-modal {
-		padding-top: 120px;
+		padding: 80px 0;
 		backdrop-filter: blur(6px);
 		background-color: rgba(100, 100, 100, 0.8);
 		min-height: 100vh;
@@ -69,7 +67,7 @@ export const ContainerModalCompany = styled.div`
 
 		.row-btn {
 			display: flex;
-			flex-direction: row;
+			flex-direction: column;
 			flex-wrap: wrap;
 			justify-content: space-between;
 
@@ -88,6 +86,8 @@ export const ContainerModalCompany = styled.div`
 				&:hover {
 					background-color: #c74a75;
 				}
+				margin-top: 30px;
+				margin-bottom: 20px;
 			}
 
 			.btn-cancel {
@@ -96,6 +96,17 @@ export const ContainerModalCompany = styled.div`
 					background-color: #26266b;
 				}
 			}
+		}
+	}
+
+	@media (max-width: 500px) {
+		.modal-square {
+			width: 92%;
+			padding: 0 10px;
+		}
+
+		.container-title-form {
+			font-size: 0.8rem;
 		}
 	}
 `;

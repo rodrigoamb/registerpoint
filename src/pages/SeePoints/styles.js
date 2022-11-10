@@ -43,8 +43,7 @@ export const ContainerContent = styled.div`
 				display: flex;
 				flex-direction: row;
 				align-items: center;
-				height: 50px;
-				padding: 0 15px;
+				padding: 15px;
 				border-bottom: 1px solid grey;
 				margin-bottom: 10px;
 				text-transform: uppercase;
@@ -116,6 +115,25 @@ export const ContainerContent = styled.div`
 		span {
 			font-weight: bold;
 			font-size: 1.3rem;
+		}
+	}
+
+	@media (max-width: 1100px) {
+		width: 100%;
+		margin-left: 0;
+		padding: 15px;
+	}
+
+	@media (max-width: 550px) {
+		.title-container {
+			font-size: 0.5rem;
+		}
+
+		.row-arrow {
+			span {
+				font-size: 1rem;
+				margin-left: 15px;
+			}
 		}
 	}
 `;

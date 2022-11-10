@@ -68,7 +68,7 @@ const EmployeesSquare = () => {
 			</div>
 			<ButtonAdd
 				setModalIsVisible={setModalIsVisible}
-				message={"Clique no botão ao lado para adicionar um novo colaborador"}
+				message={"Clique no botão para adicionar um novo colaborador"}
 				textBtn={"Adicionar novo colaborador"}
 			/>
 			<div className="container-content">

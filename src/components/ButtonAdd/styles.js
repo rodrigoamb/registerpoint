@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const ContainerButtonAdd = styled.div`
 	display: flex;
 	flex-direction: row;
-	padding: 20px 30px;
+	padding: 10px 20px;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
@@ -28,6 +28,15 @@ export const ContainerButtonAdd = styled.div`
 
 		&:hover {
 			background-color: #c74a75;
+		}
+	}
+
+	@media (max-width: 1220px) {
+		flex-direction: column;
+		align-items: flex-start;
+
+		p {
+			margin-bottom: 15px;
 		}
 	}
 `;

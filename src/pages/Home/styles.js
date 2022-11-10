@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const ContainerHome = styled.div`
 	display: flex;
 	flex-direction: row;
+
+	@media (max-width: 1100px) {
+	}
 `;
 
 export const ContainerContent = styled.div`
@@ -12,5 +15,10 @@ export const ContainerContent = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	@media (max-width: 1100px) {
+		width: 100%;
+		margin-left: 0;
+	}
 `;
 

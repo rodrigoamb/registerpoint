@@ -118,5 +118,24 @@ export const ContainerContent = styled.div`
 			font-size: 1.3rem;
 		}
 	}
+
+	@media (max-width: 1100px) {
+		width: 100%;
+		margin-left: 0;
+		padding: 15px;
+	}
+
+	@media (max-width: 550px) {
+		.title-container {
+			font-size: 0.5rem;
+		}
+
+		.row-arrow {
+			span {
+				font-size: 1rem;
+				margin-left: 15px;
+			}
+		}
+	}
 `;
 

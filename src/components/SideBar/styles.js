@@ -51,5 +51,9 @@ export const ContainerSideBar = styled.div`
 		font-size: 1.3rem;
 		margin-right: 8px;
 	}
+
+	@media (max-width: 1100px) {
+		display: none;
+	}
 `;
 

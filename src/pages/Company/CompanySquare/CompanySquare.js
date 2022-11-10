@@ -35,7 +35,7 @@ const CompanySquare = () => {
 			</div>
 			<ButtonAdd
 				setModalIsVisible={setModalIsVisible}
-				message={"Clique no botão ao lado para dicionar uma nova empresa."}
+				message={"Clique no botão para adicionar uma nova empresa."}
 				textBtn={"Adicionar nova empresa"}
 			/>
 			<div className="container-content">
