@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Teste técnico - PontoGO nov/2022
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O presente projeto corresponde ao teste técnico para a empresa PontoGO e para o desenvolvimento do teste foi utilizado :
 
-## Available Scripts
+1. ReactJS
+2. Styled-Components
+3. react-router-dom
+4. react-icons
+5. react-toastify
+6. react-input-mask
 
-In the project directory, you can run:
+## Solicitação do teste para ser considerado completo:
+
+Criar uma nova empresa através da API (Register New Company)
+
+Criar um novo colaborador para a respectiva empresa através da API (Register New Employees)
+
+Bater um ponto no horário de 15:00 no dia 26/10/2022 para o respectivo colaborador (Add Point)
+Pegar os pontos batidos do dia 26/10/2022 (Get Points of a Day)
+
+Todos os processos devem ser apresentados em uma aplicação front-end com React, como exemplo:
+
+-Formulário de cadastro da empresa consumindo a API.
+-Formulário de cadastro do colaborador consumindo a API.
+-Botão para efetuar o ponto deste colaborador em específico (Não sendo obrigatóriamente necessário pegar a lista de colaboradores dessa empresa).
+-Mostrar os pontos batidos deste colaborador em específico em uma lista.
+
+## Conceitos utilizados:
+
+-Componentes.
+-Utilização de rotas.
+-Custom hooks.
+-ContextAPI.
+-Consumindo API com Fetch.
+-Estilização com Styled-Components.
+-Entre outros conceitos.
+
+## Script para rodar o projeto em ambiente de desenvolvimento:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Obs: Projeto criado com create-react-app
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Executa o aplicativo no modo de desenvolvimento.\
+Abra [http://localhost:3000](http://localhost:3000) para visualizá-lo em seu navegador.
 
-### `npm test`
+A página será recarregada quando você fizer alterações.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ATENÇÃO!!!:
 
-### `npm run build`
+### `MENSAGEM que aparece no CONSOLE ao abrir Modal para adicionar Empresa ou Modal para adicionar o Colaborador`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Mensagem no console:
+findDOMNode is deprecated in StrictMode. findDOMNode was passed an instance of InputElement which is inside StrictMode.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Motivo:
+Após instalação da biblioteca "react-input-mask" para facilitar a ultilização de máscara nos inputs, o findDOMNode
+está obsoleto no modo React.StrictMode que está em src/index.js.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Esse erro vem da biblioteca "react-input-mask", no entanto, não compromete a utilização e avaliação do teste.
 
-### `npm run eject`
+### `Deploy`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Aplicação feito deploy no Netlify:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+https://rodrigo-ponto.netlify.app/
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enjoy!
