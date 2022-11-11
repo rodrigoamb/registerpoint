@@ -12,12 +12,12 @@ import { IoIosEye } from "react-icons/io";
 import { BiArrowBack } from "react-icons/bi";
 
 //import components
-import SideBar from "../../components/SideBar/SideBar";
-import Loading from "../../components/Loading/Loading";
-import MenuBurger from "../../components/MenuBurger/MenuBurger";
+import SideBar from "../../../components/SideBar/SideBar";
+import Loading from "../../../components/Loading/Loading";
+import MenuBurger from "../../../components/MenuBurger/MenuBurger";
 
 //import custom hook
-import { useCompanyContext } from "../../hooks/useCompanyContext";
+import { useCompanyContext } from "../../../hooks/useCompanyContext";
 
 //import hooks react
 import { useEffect, useState } from "react";

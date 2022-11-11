@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { themes } from "../../themes/themeColors";
+import { themes } from "../../../themes/themeColors";
 
 export const ContainerContent = styled.div`
 	width: calc(100% - 345px);

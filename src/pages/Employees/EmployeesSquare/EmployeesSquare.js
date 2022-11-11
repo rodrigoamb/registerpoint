@@ -29,10 +29,10 @@ const EmployeesSquare = () => {
 	const { company } = useCompanyContext();
 
 	useEffect(() => {
+		setLoadingIsVisible(true);
+
 		if (company) {
 			const getEmployees = async () => {
-				setLoadingIsVisible(true);
-
 				const companyToken = company.tokenCompanyForPontoGo;
 
 				const url = `https://pontogo-api.herokuapp.com/get-employees?company-token-pg=${companyToken}`;
@@ -61,6 +61,8 @@ const EmployeesSquare = () => {
 			} catch (err) {
 				toast.warn("Erro ao carregar os colaboradores.");
 			}
+		} else {
+			setLoadingIsVisible(false);
 		}
 	}, [company]);
 
@@ -83,14 +85,12 @@ const EmployeesSquare = () => {
 					{listEmployees.length > 0 ? (
 						listEmployees.map((item, index) => (
 							<li key={index}>
-								<Link
-									to={`/verpontos/${item.id}+${item.firstName}+${item.lastName}`}
-								>
+								<Link to={`/colaboradores/verpontos/${item.id}+${item.name}`}>
 									<IoIosEye className="iconEye" />
 								</Link>
 
 								<Link
-									to={`/adicionarponto/${item.id}+${item.firstName}+${item.lastName}`}
+									to={`/colaboradores/adicionarponto/${item.id}+${item.name}`}
 								>
 									<BiTime className="iconTime" />
 								</Link>

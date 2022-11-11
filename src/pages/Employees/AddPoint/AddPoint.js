@@ -2,8 +2,8 @@
 import { ContainerContent } from "./styles";
 
 //import components
-import SideBar from "../../components/SideBar/SideBar";
-import Loading from "../../components/Loading/Loading";
+import SideBar from "../../../components/SideBar/SideBar";
+import Loading from "../../../components/Loading/Loading";
 
 //import icons
 import { BiTime } from "react-icons/bi";
@@ -14,17 +14,16 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 //import custom hooks
-import { useCompanyContext } from "../../hooks/useCompanyContext";
+import { useCompanyContext } from "../../../hooks/useCompanyContext";
 
 //import notification - toastify
 import { toast } from "react-toastify";
-import MenuBurger from "../../components/MenuBurger/MenuBurger";
+import MenuBurger from "../../../components/MenuBurger/MenuBurger";
 
 const AddPoint = () => {
 	const { id } = useParams();
 
 	const [firstNameEmployees, setFirstNameEmployees] = useState("");
-	const [lastNameEmployees, setLastNameEmployees] = useState("");
 	const [idEmployees, setIdEmployees] = useState("");
 	const [datePoint, setDatePoint] = useState("");
 	const [loadingIsVisible, setLoadingIsVisible] = useState(false);
@@ -35,7 +34,6 @@ const AddPoint = () => {
 		if (id) {
 			setIdEmployees(id.split("+")[0]);
 			setFirstNameEmployees(id.split("+")[1]);
-			setLastNameEmployees(id.split("+")[2]);
 		}
 	}, [id]);
 
@@ -117,9 +115,7 @@ const AddPoint = () => {
 						<label className="label-row">
 							<span>Colaborador:</span>
 
-							<span className="name-employees">
-								{firstNameEmployees} {lastNameEmployees}
-							</span>
+							<span className="name-employees">{firstNameEmployees}</span>
 						</label>
 						<label className="label-row">
 							<span>Escolha o dia e a hora do ponto:</span>

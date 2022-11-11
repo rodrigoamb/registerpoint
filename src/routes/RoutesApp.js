@@ -5,10 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import Company from "../pages/Company/Company";
 import Employees from "../pages/Employees/Employees";
 import Home from "../pages/Home/Home";
-import AddPoint from "../pages/AddPoint/AddPoint";
-import SeePoints from "../pages/SeePoints/SeePoints";
-
-import MenuBurger from "../components/MenuBurger/MenuBurger";
+import AddPoint from "../pages/Employees/AddPoint/AddPoint";
+import SeePoints from "../pages//Employees/SeePoints/SeePoints";
 
 const RoutesApp = () => {
 	return (
@@ -16,11 +14,8 @@ const RoutesApp = () => {
 			<Route path="/" element={<Home />} />
 			<Route path="/empresa" element={<Company />} />
 			<Route path="/colaboradores" element={<Employees />} />
-			<Route path="/adicionarponto" element={<AddPoint />} />
-			<Route path="/adicionarponto/:id" element={<AddPoint />} />
-			<Route path="/verpontos/:id" element={<SeePoints />} />
-
-			<Route path="/menu" element={<MenuBurger />} />
+			<Route path="/colaboradores/adicionarponto/:id" element={<AddPoint />} />
+			<Route path="/colaboradores/verpontos/:id" element={<SeePoints />} />
 		</Routes>
 	);
 };
