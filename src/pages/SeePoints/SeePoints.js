@@ -14,6 +14,7 @@ import { BiArrowBack } from "react-icons/bi";
 //import components
 import SideBar from "../../components/SideBar/SideBar";
 import Loading from "../../components/Loading/Loading";
+import MenuBurger from "../../components/MenuBurger/MenuBurger";
 
 //import custom hook
 import { useCompanyContext } from "../../hooks/useCompanyContext";
@@ -43,6 +44,11 @@ const SeePoints = () => {
 
 	const handlePullPoints = async (e) => {
 		e.preventDefault();
+
+		if (!initialDate || !endDate) {
+			toast.warn(`As duas datas deve ser escolhida.`);
+			return;
+		}
 
 		try {
 			setLoadingIsVisible(true);
@@ -81,6 +87,7 @@ const SeePoints = () => {
 
 	return (
 		<div>
+			<MenuBurger />
 			<SideBar />
 			<ContainerContent>
 				{loadingIsVisible && <Loading />}

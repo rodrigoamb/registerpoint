@@ -13,6 +13,9 @@ import Loading from "../../../components/Loading/Loading";
 //import notification - toastify
 import { toast } from "react-toastify";
 
+//import MaskInput
+import InputMask from "react-input-mask";
+
 const ModalCompany = ({
 	setModalIsVisible,
 	setNameCompany,
@@ -30,45 +33,70 @@ const ModalCompany = ({
 	const handleSaveCompany = async (e) => {
 		e.preventDefault();
 
-		setLoadingIsVisible(true);
+		if (
+			!socialName ||
+			!fantasyName ||
+			!cnpj ||
+			!phoneCompany ||
+			!emailCompany
+		) {
+			toast.warn(`Todos os campos devem ser preenchidos`);
+			return;
+		}
 
-		const url = "https://pontogo-api.herokuapp.com/register-company";
+		try {
+			setLoadingIsVisible(true);
 
-		const myHeaders = new Headers();
-		myHeaders.append("Authorization", "E09FBC2D-C866-4FEF-94F5-CD5738418454");
+			const formatedCnpj = cnpj
+				.replace(".", "")
+				.replace(".", "")
+				.replace("/", "")
+				.replace("-", "");
 
-		const raw = {
-			name: fantasyName,
-			phone: phoneCompany,
-			email: emailCompany,
-			cnpj: cnpj,
-			razaoSocial: socialName,
-		};
+			const formatedPhone = phoneCompany.replace("(", "").replace(")", "");
 
-		const requestOptions = {
-			method: "POST",
-			headers: myHeaders,
-			body: JSON.stringify(raw),
-			redirect: "follow",
-		};
+			const url = "https://pontogo-api.herokuapp.com/register-company";
 
-		const res = await fetch(url, requestOptions);
-		const data = await res.json();
+			const myHeaders = new Headers();
+			myHeaders.append("Authorization", "E09FBC2D-C866-4FEF-94F5-CD5738418454");
 
-		const dataCompany = {
-			...data,
-			...{ nameCompany: socialName, cnpjCompany: cnpj },
-		};
+			const raw = {
+				name: fantasyName,
+				phone: formatedPhone,
+				email: emailCompany,
+				cnpj: formatedCnpj,
+				razaoSocial: socialName,
+			};
 
-		setCompany(dataCompany);
+			const requestOptions = {
+				method: "POST",
+				headers: myHeaders,
+				body: JSON.stringify(raw),
+				redirect: "follow",
+			};
 
-		setNameCompany(socialName);
-		setCnpjCompany(cnpj);
+			const res = await fetch(url, requestOptions);
+			const data = await res.json();
 
-		setModalIsVisible(false);
+			const dataCompany = {
+				...data,
+				...{ nameCompany: socialName, cnpjCompany: cnpj },
+			};
 
-		setLoadingIsVisible(false);
-		toast.success("Empresa salvo com sucesso.");
+			setCompany(dataCompany);
+
+			setNameCompany(socialName);
+			setCnpjCompany(cnpj);
+
+			setModalIsVisible(false);
+
+			setLoadingIsVisible(false);
+
+			toast.success("Empresa salvo com sucesso.");
+		} catch (error) {
+			toast.warn(`Ocorreu um erro: ${error}`);
+			setModalIsVisible(false);
+		}
 	};
 
 	return (
@@ -110,13 +138,13 @@ const ModalCompany = ({
 							</label>
 
 							<label className="label-row">
-								<span className="title-form">CNPJ: (apenas números)</span>
-								<input
+								<span className="title-form">CNPJ:</span>
+								<InputMask
+									mask="99.999.999/9999-99"
 									className="input-form-company"
-									type="number"
 									name="cnpj"
 									id="cnpj"
-									placeholder="xxxxxxxxxxxxxxx"
+									placeholder="Digite o Cnpj da empresa..."
 									value={cnpj}
 									onChange={(e) => setCnpj(e.target.value)}
 								/>
@@ -124,12 +152,12 @@ const ModalCompany = ({
 
 							<label className="label-row">
 								<span className="title-form">Telefone com DDD:</span>
-								<input
+								<InputMask
+									mask="(99)999999999"
 									className="input-form-company"
-									type="number"
 									name="phone"
 									id="phone"
-									placeholder="859xxxxxxxx"
+									placeholder="Digite o telefone da empresa..."
 									value={phoneCompany}
 									onChange={(e) => setPhoneCompany(e.target.value)}
 								/>

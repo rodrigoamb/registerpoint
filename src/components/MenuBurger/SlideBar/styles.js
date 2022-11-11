@@ -3,11 +3,17 @@ import styled from "styled-components";
 import { themes } from "../../../themes/themeColors";
 
 export const ContainerSlideBar = styled.div`
-	position: absolute;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
 	min-width: 100%;
 	min-height: 100vh;
 	backdrop-filter: blur(6px);
 	background-color: rgba(100, 100, 100, 0.3);
+	z-index: 99;
+	pointer-events: auto;
 
 	.navbar-container {
 		position: relative;

@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
 	return (
 		<BrowserRouter>
-			<ToastContainer autoClose={3000} />
+			<ToastContainer autoClose={2000} />
 			<RoutesApp />
 		</BrowserRouter>
 	);

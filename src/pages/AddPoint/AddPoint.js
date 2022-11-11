@@ -18,6 +18,7 @@ import { useCompanyContext } from "../../hooks/useCompanyContext";
 
 //import notification - toastify
 import { toast } from "react-toastify";
+import MenuBurger from "../../components/MenuBurger/MenuBurger";
 
 const AddPoint = () => {
 	const { id } = useParams();
@@ -86,13 +87,14 @@ const AddPoint = () => {
 			toast.success(
 				`Ponto registrado com sucesso. Ponto em: ${new Date(data.date)}`
 			);
-		} catch (err) {
-			toast.warn(`erro: ${err}`);
+		} catch (error) {
+			toast.warn(`erro: ${error}`);
 		}
 	};
 
 	return (
 		<div>
+			<MenuBurger />
 			<SideBar />
 			<ContainerContent>
 				{loadingIsVisible && <Loading />}

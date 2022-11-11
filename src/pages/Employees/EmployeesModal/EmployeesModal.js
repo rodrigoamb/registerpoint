@@ -13,6 +13,9 @@ import Loading from "../../../components/Loading/Loading";
 //import notification - toastify
 import { toast } from "react-toastify";
 
+//import MaskInput
+import InputMask from "react-input-mask";
+
 const EmployeesModal = ({ setModalIsVisible, setListEmployees }) => {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
@@ -27,52 +30,73 @@ const EmployeesModal = ({ setModalIsVisible, setListEmployees }) => {
 	const handleAddEmployees = async (e) => {
 		e.preventDefault();
 
-		setLoadingIsVisible(true);
+		if (
+			!firstName ||
+			!lastName ||
+			!cpfEmployees ||
+			!birthdate ||
+			!admissionDate ||
+			!emailEmployees
+		) {
+			toast.warn(`Todos os campos devem ser preenchidos.`);
+			return;
+		}
 
-		const companyToken = company.tokenCompanyForPontoGo;
+		try {
+			setLoadingIsVisible(true);
 
-		const url = `https://pontogo-api.herokuapp.com/register-employees?company-token-pg=${companyToken}`;
+			const cpfFormated = cpfEmployees
+				.replace(".", "")
+				.replace(".", "")
+				.replace("-", "");
 
-		const myHeaders = new Headers();
-		myHeaders.append("Authorization", "E09FBC2D-C866-4FEF-94F5-CD5738418454");
+			const companyToken = company.tokenCompanyForPontoGo;
 
-		const raw = {
-			disableMandril: true,
-			employees: [
-				{
-					email: emailEmployees,
-					cpf: cpfEmployees,
-					firstName: firstName,
-					lastName: lastName,
-					admissionDate: new Date(admissionDate).toISOString(),
-					birthdate: new Date(birthdate).toISOString(),
-					registration: "000000001",
-					pis: null,
-					pointWithPicture: false,
-					companyAdmissionDate: "2022-10-20T00:00:00.000Z",
-					clt: true,
-				},
-			],
-		};
+			const url = `https://pontogo-api.herokuapp.com/register-employees?company-token-pg=${companyToken}`;
 
-		const requestOptions = {
-			method: "POST",
-			headers: myHeaders,
-			body: JSON.stringify(raw),
-			redirect: "follow",
-		};
+			const myHeaders = new Headers();
+			myHeaders.append("Authorization", "E09FBC2D-C866-4FEF-94F5-CD5738418454");
 
-		const res = await fetch(url, requestOptions);
-		const data = await res.json();
+			const raw = {
+				disableMandril: true,
+				employees: [
+					{
+						email: emailEmployees,
+						cpf: cpfFormated,
+						firstName: firstName,
+						lastName: lastName,
+						admissionDate: new Date(admissionDate).toISOString(),
+						birthdate: new Date(birthdate).toISOString(),
+						registration: "000000001",
+						pis: null,
+						pointWithPicture: false,
+						companyAdmissionDate: "2022-10-20T00:00:00.000Z",
+						clt: true,
+					},
+				],
+			};
 
-		setListEmployees((prev) => [...prev, data.employees[0]]);
+			const requestOptions = {
+				method: "POST",
+				headers: myHeaders,
+				body: JSON.stringify(raw),
+				redirect: "follow",
+			};
 
-		setModalIsVisible(false);
-		setLoadingIsVisible(false);
+			const res = await fetch(url, requestOptions);
+			const data = await res.json();
 
-		toast.success(
-			`Colaborador(a) ${data.employees[0].firstName} ${data.employees[0].lastName} salvo com sucesso.`
-		);
+			setListEmployees((prev) => [...prev, data.employees[0]]);
+
+			setModalIsVisible(false);
+			setLoadingIsVisible(false);
+
+			toast.success(
+				`Colaborador(a) ${data.employees[0].firstName} ${data.employees[0].lastName} salvo com sucesso.`
+			);
+		} catch (err) {
+			toast.warn(`Erro ao registrar o colaborador. ${err}`);
+		}
 	};
 
 	return (
@@ -115,12 +139,12 @@ const EmployeesModal = ({ setModalIsVisible, setListEmployees }) => {
 
 							<label className="label-row">
 								<span className="title-form">CPF:</span>
-								<input
+								<InputMask
+									mask="999.999.999-99"
 									className="input-form-employees"
-									type="number"
 									name="cpf"
 									id="cpf"
-									placeholder="xxxxxxxxxxx"
+									placeholder="Cpf do colaborador..."
 									value={cpfEmployees}
 									onChange={(e) => setCpfEmployees(e.target.value)}
 								/>

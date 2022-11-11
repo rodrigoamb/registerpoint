@@ -12,12 +12,14 @@ import { useState, useEffect } from "react";
 //import custom hook
 import { useCompanyContext } from "../../../hooks/useCompanyContext";
 
+//import components
 import ButtonAdd from "../../../components/ButtonAdd/ButtonAdd";
 import EmployeesModal from "../EmployeesModal/EmployeesModal";
 import Loading from "../../../components/Loading/Loading";
 
 //import react-router-dom
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const EmployeesSquare = () => {
 	const [modalIsVisible, setModalIsVisible] = useState(false);
@@ -54,7 +56,11 @@ const EmployeesSquare = () => {
 				setLoadingIsVisible(false);
 			};
 
-			getEmployees();
+			try {
+				getEmployees();
+			} catch (err) {
+				toast.warn("Erro ao carregar os colaboradores.");
+			}
 		}
 	}, [company]);
 
