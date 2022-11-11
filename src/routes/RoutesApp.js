@@ -8,6 +8,8 @@ import Home from "../pages/Home/Home";
 import AddPoint from "../pages/AddPoint/AddPoint";
 import SeePoints from "../pages/SeePoints/SeePoints";
 
+import MenuBurger from "../components/MenuBurger/MenuBurger";
+
 const RoutesApp = () => {
 	return (
 		<Routes>
@@ -17,8 +19,11 @@ const RoutesApp = () => {
 			<Route path="/adicionarponto" element={<AddPoint />} />
 			<Route path="/adicionarponto/:id" element={<AddPoint />} />
 			<Route path="/verpontos/:id" element={<SeePoints />} />
+
+			<Route path="/menu" element={<MenuBurger />} />
 		</Routes>
 	);
 };
 
 export default RoutesApp;
+

@@ -3,9 +3,6 @@ import styled from "styled-components";
 export const ContainerHome = styled.div`
 	display: flex;
 	flex-direction: row;
-
-	@media (max-width: 1100px) {
-	}
 `;
 
 export const ContainerContent = styled.div`
