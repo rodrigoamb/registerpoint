@@ -40,14 +40,21 @@ export const ContainerContent = styled.div`
 		ul {
 			list-style: none;
 
-			li {
+			.list-points {
+				max-width: 600px;
+				background-color: ${themes.color.tertiaryColor};
 				display: flex;
 				flex-direction: row;
 				align-items: center;
 				padding: 15px;
-				border-bottom: 1px solid grey;
 				margin-bottom: 10px;
 				text-transform: uppercase;
+				border-radius: 8px;
+				box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+			}
+
+			.message-point {
+				color: ${themes.color.secondaryColor};
 			}
 		}
 	}

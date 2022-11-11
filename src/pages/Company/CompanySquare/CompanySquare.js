@@ -33,11 +33,13 @@ const CompanySquare = () => {
 				<BsBuilding className="icons" />
 				<h1>Registrar empresa</h1>
 			</div>
+
 			<ButtonAdd
 				setModalIsVisible={setModalIsVisible}
 				message={"Clique no botão para adicionar uma nova empresa."}
 				textBtn={"Adicionar nova empresa"}
 			/>
+
 			<div className="container-content">
 				<h2>Empresa cadastrada:</h2>
 				<ul>

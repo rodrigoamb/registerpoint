@@ -7,6 +7,7 @@ import Employees from "../pages/Employees/Employees";
 import Home from "../pages/Home/Home";
 import AddPoint from "../pages/Employees/AddPoint/AddPoint";
 import SeePoints from "../pages//Employees/SeePoints/SeePoints";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const RoutesApp = () => {
 	return (
@@ -16,6 +17,8 @@ const RoutesApp = () => {
 			<Route path="/colaboradores" element={<Employees />} />
 			<Route path="/colaboradores/adicionarponto/:id" element={<AddPoint />} />
 			<Route path="/colaboradores/verpontos/:id" element={<SeePoints />} />
+
+			<Route path="*" element={<ErrorPage />} />
 		</Routes>
 	);
 };

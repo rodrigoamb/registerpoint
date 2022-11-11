@@ -18,6 +18,7 @@ const MenuBurger = () => {
 					setMenuIsVisible={setMenuIsVisible}
 				/>
 			)}
+
 			<header>
 				<GiHamburgerMenu
 					className="iconBurger"

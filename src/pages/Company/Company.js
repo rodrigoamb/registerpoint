@@ -10,7 +10,9 @@ const Company = () => {
 	return (
 		<div>
 			<MenuBurger />
+
 			<SideBar />
+
 			<ContainerContent>
 				<CompanySquare />
 			</ContainerContent>

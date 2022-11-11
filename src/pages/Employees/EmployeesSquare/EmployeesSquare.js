@@ -74,13 +74,16 @@ const EmployeesSquare = () => {
 				<BsFillPeopleFill className="icons" />
 				<h1>Registrar colaboradores</h1>
 			</div>
+
 			<ButtonAdd
 				setModalIsVisible={setModalIsVisible}
 				message={"Clique no botão para adicionar um novo colaborador"}
 				textBtn={"Adicionar novo colaborador"}
 			/>
+
 			<div className="container-content">
 				<h2>Colaboradores cadastrados:</h2>
+
 				<ul>
 					{listEmployees.length > 0 ? (
 						listEmployees.map((item, index) => (
@@ -103,6 +106,7 @@ const EmployeesSquare = () => {
 					)}
 				</ul>
 			</div>
+
 			{modalIsVisible && (
 				<EmployeesModal
 					setModalIsVisible={setModalIsVisible}

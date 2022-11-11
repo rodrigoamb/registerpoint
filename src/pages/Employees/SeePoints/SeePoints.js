@@ -88,14 +88,18 @@ const SeePoints = () => {
 	return (
 		<div>
 			<MenuBurger />
+
 			<SideBar />
+
 			<ContainerContent>
 				{loadingIsVisible && <Loading />}
+
 				<div className="title-container">
 					<IoIosEye className="icons" />
 
 					<h1>Ver pontos registrados</h1>
 				</div>
+
 				<div className="row-arrow">
 					<Link to="/colaboradores">
 						<BiArrowBack className="icon-arrow" />
@@ -103,6 +107,7 @@ const SeePoints = () => {
 
 					<span>Voltar para colaboradores</span>
 				</div>
+
 				<div className="container-content">
 					<h2>Lista de pontos:</h2>
 
@@ -141,14 +146,17 @@ const SeePoints = () => {
 							</button>
 						</div>
 					</form>
+
 					<div>
 						<ul>
 							{listPointData.length > 0 ? (
 								listPointData.map((item) => (
-									<li key={item.id}>{`${new Date(item.date)}`}</li>
+									<li className="list-points" key={item.id}>{`${new Date(
+										item.date
+									)}`}</li>
 								))
 							) : (
-								<p>Nenhum ponto para exibir.</p>
+								<li className="message-point">Nenhum ponto para exibir.</li>
 							)}
 						</ul>
 					</div>

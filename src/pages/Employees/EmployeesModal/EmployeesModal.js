@@ -113,6 +113,7 @@ const EmployeesModal = ({ setModalIsVisible, setListEmployees }) => {
 						<form onSubmit={handleAddEmployees}>
 							<label className="label-row">
 								<span className="title-form">Primeiro Nome:</span>
+
 								<input
 									className="input-form-employees"
 									type="text"
@@ -126,6 +127,7 @@ const EmployeesModal = ({ setModalIsVisible, setListEmployees }) => {
 
 							<label className="label-row">
 								<span className="title-form">Sobrenome:</span>
+
 								<input
 									className="input-form-employees"
 									type="text"
@@ -139,6 +141,7 @@ const EmployeesModal = ({ setModalIsVisible, setListEmployees }) => {
 
 							<label className="label-row">
 								<span className="title-form">CPF:</span>
+
 								<InputMask
 									mask="999.999.999-99"
 									className="input-form-employees"
@@ -152,6 +155,7 @@ const EmployeesModal = ({ setModalIsVisible, setListEmployees }) => {
 
 							<label className="label-row">
 								<span className="title-form">Data de nascimento:</span>
+
 								<input
 									className="input-form-employees"
 									type="date"
@@ -164,6 +168,7 @@ const EmployeesModal = ({ setModalIsVisible, setListEmployees }) => {
 
 							<label className="label-row">
 								<span className="title-form">Data admissão:</span>
+
 								<input
 									className="input-form-employees"
 									type="date"
@@ -176,6 +181,7 @@ const EmployeesModal = ({ setModalIsVisible, setListEmployees }) => {
 
 							<label className="label-row">
 								<span className="title-form">Email:</span>
+
 								<input
 									className="input-form-employees"
 									type="email"
@@ -191,6 +197,7 @@ const EmployeesModal = ({ setModalIsVisible, setListEmployees }) => {
 								<button className="btn-save" type="submit">
 									Salvar
 								</button>
+
 								<button
 									className="btn-cancel"
 									onClick={() => setModalIsVisible(false)}
