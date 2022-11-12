@@ -29,10 +29,10 @@ const EmployeesSquare = () => {
 	const { company } = useCompanyContext();
 
 	useEffect(() => {
-		setLoadingIsVisible(true);
-
 		if (company) {
 			const getEmployees = async () => {
+				setLoadingIsVisible(true);
+
 				const companyToken = company.tokenCompanyForPontoGo;
 
 				const url = `https://pontogo-api.herokuapp.com/get-employees?company-token-pg=${companyToken}`;
@@ -75,11 +75,17 @@ const EmployeesSquare = () => {
 				<h1>Registrar colaboradores</h1>
 			</div>
 
-			<ButtonAdd
-				setModalIsVisible={setModalIsVisible}
-				message={"Clique no botão para adicionar um novo colaborador"}
-				textBtn={"Adicionar novo colaborador"}
-			/>
+			{company ? (
+				<ButtonAdd
+					setModalIsVisible={setModalIsVisible}
+					message={"Clique no botão para adicionar um novo colaborador"}
+					textBtn={"Adicionar novo colaborador"}
+				/>
+			) : (
+				<p className="message-info">
+					Adicione uma empresa para registrar um colaborador.
+				</p>
+			)}
 
 			<div className="container-content">
 				<h2>Colaboradores cadastrados:</h2>

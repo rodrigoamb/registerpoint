@@ -42,6 +42,11 @@ const EmployeesModal = ({ setModalIsVisible, setListEmployees }) => {
 			return;
 		}
 
+		if (!emailEmployees.includes("@") || !emailEmployees.includes(".com")) {
+			toast.warn(`O email deve ser preenchido corretamente.`);
+			return;
+		}
+
 		try {
 			setLoadingIsVisible(true);
 
@@ -189,7 +194,9 @@ const EmployeesModal = ({ setModalIsVisible, setListEmployees }) => {
 									id="email"
 									placeholder="emaildocolaborador@email.com"
 									value={emailEmployees}
-									onChange={(e) => setEmailEmployees(e.target.value)}
+									onChange={(e) =>
+										setEmailEmployees(e.target.value.toLowerCase())
+									}
 								/>
 							</label>
 

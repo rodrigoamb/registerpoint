@@ -37,6 +37,14 @@ export const ContainerSquare = styled.div`
 		background-color: #00a601;
 	}
 
+	.message-info {
+		font-size: 1.1rem;
+		background-color: #8bebff;
+		padding: 10px;
+		margin-bottom: 15px;
+		color: ${themes.color.secondaryColor};
+	}
+
 	.container-content {
 		background-color: ${themes.color.primaryText};
 		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);

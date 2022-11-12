@@ -44,6 +44,11 @@ const ModalCompany = ({
 			return;
 		}
 
+		if (!emailCompany.includes("@") || !emailCompany.includes(".com")) {
+			toast.warn(`O email deve ser preenchido corretamente.`);
+			return;
+		}
+
 		try {
 			setLoadingIsVisible(true);
 
@@ -172,7 +177,9 @@ const ModalCompany = ({
 									id="email"
 									placeholder="emaildaempresa@email.com"
 									value={emailCompany}
-									onChange={(e) => setEmailCompany(e.target.value)}
+									onChange={(e) =>
+										setEmailCompany(e.target.value.toLowerCase())
+									}
 								/>
 							</label>
 
